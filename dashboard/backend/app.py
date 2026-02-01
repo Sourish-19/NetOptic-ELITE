@@ -112,6 +112,21 @@ def get_capacity_report():
 
 @app.route('/api/auth/signup', methods=['POST'])
 def signup():
+    # === MOCK AUTH START ===
+    # For emergency bypass of DB issues
+    if True: # Always enabled for now as requested
+        data = request.json
+        email = data.get('email')
+        name = data.get('name', 'User')
+        # Create a dummy token
+        access_token = create_access_token(identity="mock_user_id")
+        return jsonify({
+            "msg": "MOCK User created successfully",
+            "token": access_token,
+            "user": {"email": email, "name": name}
+        }), 201
+    # === MOCK AUTH END ===
+
     data = request.json
     email = data.get('email')
     password = data.get('password')
@@ -141,6 +156,20 @@ def signup():
 
 @app.route('/api/auth/login', methods=['POST'])
 def login():
+    # === MOCK AUTH START ===
+    # For emergency bypass of DB issues
+    if True: # Always enabled for now as requested
+        data = request.json
+        email = data.get('email')
+        # Create a dummy token
+        access_token = create_access_token(identity="mock_user_id")
+        return jsonify({
+            "msg": "MOCK Login successful",
+            "token": access_token,
+            "user": {"email": email, "name": "Mock User"}
+        }), 200
+    # === MOCK AUTH END ===
+
     data = request.json
     email = data.get('email')
     password = data.get('password')
