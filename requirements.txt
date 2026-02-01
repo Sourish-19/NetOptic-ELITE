@@ -11,3 +11,6 @@ scipy
 gunicorn
 matplotlib
 numba
+
+certifi
+pymongo
