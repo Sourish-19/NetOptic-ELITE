@@ -26,7 +26,8 @@ mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
-CORS(app)
+# Allow all origins for the hackathon demo to prevent any CORS issues
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Initialize Logic (Loads Data)
 # Assumes we run this from dashboard/backend, so data is up 2 levels
@@ -38,6 +39,18 @@ logic = NetworkLogic(DATA_DIR)
 @app.route('/health', methods=['GET'])
 def health():
     return jsonify({"status": "ok"})
+
+@app.route('/', methods=['GET'])
+def root():
+    return jsonify({
+        "status": "NetOptic Deployment Online",
+        "endpoints": [
+            "/api/topology",
+            "/api/optimize",
+            "/api/financials",
+            "/health"
+        ]
+    })
 
 @app.route('/api/topology', methods=['GET'])
 def get_topology():

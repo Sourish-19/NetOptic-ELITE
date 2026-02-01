@@ -38,6 +38,7 @@ const App: React.FC = () => {
     if (token) {
       setIsAuthenticated(true);
       if (savedUser) setUser(JSON.parse(savedUser));
+      setView('dashboard'); // Auto-skip landing page if logged in
     }
   }, []);
 
