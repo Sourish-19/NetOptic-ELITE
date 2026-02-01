@@ -1,5 +1,11 @@
+flask
+flask-cors
+flask-pymongo
+flask-bcrypt
+flask-jwt-extended
+python-dotenv
 pandas
 numpy
-matplotlib
-scipy
 networkx
+scipy
+gunicorn
