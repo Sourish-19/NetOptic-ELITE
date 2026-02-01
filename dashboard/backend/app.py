@@ -22,7 +22,10 @@ app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=1)
 
 print(f"Loaded MONGO_URI: {app.config['MONGO_URI'][:20]}...")
 
-mongo = PyMongo(app)
+# Fix for Render/MongoDB Atlas SSL Handshake Error
+import ssl
+app.config["MONGO_TLS_ALLOW_INVALID_CERTIFICATES"] = True 
+mongo = PyMongo(app, tls=True, tlsAllowInvalidCertificates=True)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
