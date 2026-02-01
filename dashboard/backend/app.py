@@ -1,6 +1,9 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from logic import NetworkLogic
+try:
+    from .logic import NetworkLogic
+except ImportError:
+    from logic import NetworkLogic
 import os
 from dotenv import load_dotenv
 from flask_pymongo import PyMongo
