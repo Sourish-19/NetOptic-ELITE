@@ -1,0 +1,1 @@
+{"1": {"link_id": 1, "peak_gbps": 167.88, "p99_gbps": 23.04, "p95_gbps": 1.45, "avg_gbps": 0.81}, "2": {"link_id": 2, "peak_gbps": 95.0, "p99_gbps": 12.0, "p95_gbps": 1.16, "avg_gbps": 0.41}, "3": {"link_id": 3, "peak_gbps": 232.3, "p99_gbps": 64.49, "p95_gbps": 1.86, "avg_gbps": 2.03}}

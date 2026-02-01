@@ -5,6 +5,9 @@ __pycache__/
 dist/
 build/
 .DS_Store
-output/
+output/*
+!output/*.json
+!output/link_capacity_estimates.csv
+!output/topology_graph.png
 .gemini/
 .agent/
