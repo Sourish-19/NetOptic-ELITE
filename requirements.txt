@@ -9,3 +9,5 @@ numpy
 networkx
 scipy
 gunicorn
+matplotlib
+numba
